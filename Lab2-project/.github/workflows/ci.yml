@@ -21,6 +21,9 @@ jobs:
         with:
           java-version: '11' # Adjust this if you're using a different version
 
+      - name: Grant executable permission for gradlew
+        run: chmod +x gradlew
+
       - name: Cache Gradle packages
         uses: actions/cache@v2
         with:
@@ -30,7 +33,7 @@ jobs:
             ${{ runner.os }}-gradle-
 
       - name: Build with Gradle
-        run: gradlew.bat build
+        run: ./gradlew build
 
       - name: Run tests
-        run: gradlew.bat test
+        run: ./gradlew test
